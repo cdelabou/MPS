@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
+import jetbrains.mps.internal.collections.runtime.IWhereFilter;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
@@ -37,6 +38,20 @@ public class ChangeMethodSignatureParameters {
   }
   public boolean isReturnValueChanged() {
     return !((MatchingUtil.matchNodes(SLinkOperations.getTarget(this.myMethod, LINKS.returnType$5xoi), SLinkOperations.getTarget(this.myOldMethod, LINKS.returnType$5xoi))));
+  }
+  public boolean hasNewParameters() {
+    return ListSequence.fromList(SLinkOperations.getChildren(this.getDeclaration(), LINKS.parameter$5xBj)).any(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return (int) ListSequence.fromList(getIdList()).indexOf(it.getNodeId().toString()) == -1;
+      }
+    });
+  }
+  public List<SNode> getNewParameters() {
+    return ListSequence.fromList(SLinkOperations.getChildren(this.getDeclaration(), LINKS.parameter$5xBj)).where(new IWhereFilter<SNode>() {
+      public boolean accept(SNode it) {
+        return (int) ListSequence.fromList(getIdList()).indexOf(it.getNodeId().toString()) == -1;
+      }
+    }).toListSequence();
   }
 
   private static final class LINKS {
