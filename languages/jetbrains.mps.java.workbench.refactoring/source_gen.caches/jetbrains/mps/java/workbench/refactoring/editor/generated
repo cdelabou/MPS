@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product version="3" modelHash="8h8zxohbo92lrl9sjnkxp0ttn80kxxx">
+  <files names="DefaultParameterEditor_Editor.java:DefaultParameterEditor_EditorBuilder_a.java:DefaultParameterEditor_SubstituteMenu.java:EditorAspectDescriptorImpl.java:ExistingParameter_Editor.java:ExistingParameter_EditorBuilder_a.java:FunctionRefactoringEditor_Editor.java:FunctionRefactoringEditor_EditorBuilder_a.java:FunctionRefactoringEditor_SubstituteMenu.java:ParameterRefactoringList_Editor.java:ParameterRefactoringList_EditorBuilder_a.java:PreventListModification.java:TypeMigrationEditor_Editor.java:TypeMigrationEditor_EditorBuilder_a.java:TypeMigrationEditor_SubstituteMenu.java" />
+</product>
+

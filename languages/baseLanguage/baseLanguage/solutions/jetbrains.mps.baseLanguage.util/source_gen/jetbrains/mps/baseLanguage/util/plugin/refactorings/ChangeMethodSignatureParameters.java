@@ -9,16 +9,26 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import java.util.ArrayList;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
+import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.lang.pattern.util.MatchingUtil;
 import jetbrains.mps.internal.collections.runtime.IWhereFilter;
+import java.util.Map;
+import jetbrains.mps.internal.collections.runtime.MapSequence;
+import java.util.HashMap;
+import jetbrains.mps.internal.collections.runtime.IVisitor;
+import jetbrains.mps.smodel.builder.SNodeBuilder;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
+import org.jetbrains.mps.openapi.language.SConcept;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 
 @GeneratedClass(node = "r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)/8492459591399165206", model = "r:5f19c5cc-325c-485a-b033-20949d89a6f0(jetbrains.mps.baseLanguage.util.plugin.refactorings)")
 public class ChangeMethodSignatureParameters {
   private SNode myMethod;
   private SNode myOldMethod;
+  private SNode myRefactoringEditor;
   private List<String> myParametersIds = ListSequence.fromList(new ArrayList<String>());
   public ChangeMethodSignatureParameters(SNode declaration) {
     this.myMethod = SNodeOperations.copyNode(declaration);
@@ -26,9 +36,21 @@ public class ChangeMethodSignatureParameters {
     for (SNode param : ListSequence.fromList(SLinkOperations.getChildren(this.myMethod, LINKS.parameter$5xBj))) {
       ListSequence.fromList(this.myParametersIds).addElement(param.getNodeId().toString());
     }
+
+    // Create refactoring editor 
+    myRefactoringEditor = createFunctionRefactoringEditor_viavx4_a0f0e(declaration, SNodeOperations.copyNode(declaration));
+    SLinkOperations.setTarget(SLinkOperations.getTarget(myRefactoringEditor, LINKS.targetMethod$Rymt), LINKS.body$5xQk, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList")));
+
+    // Bind parameters 
+    for (int i = 0; i < ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRefactoringEditor, LINKS.targetMethod$Rymt), LINKS.parameter$5xBj)).count(); i += 1) {
+      new IAttributeDescriptor.NodeAttribute(CONCEPTS.ExistingParameter$KR).set(ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(myRefactoringEditor, LINKS.targetMethod$Rymt), LINKS.parameter$5xBj)).getElement(i), createExistingParameter_viavx4_a0a0j0e(ListSequence.fromList(SLinkOperations.getChildren(declaration, LINKS.parameter$5xBj)).getElement(i)));
+    }
+  }
+  public SNode getRefactoringEditor() {
+    return this.myRefactoringEditor;
   }
   public SNode getDeclaration() {
-    return this.myMethod;
+    return SLinkOperations.getTarget(this.myRefactoringEditor, LINKS.targetMethod$Rymt);
   }
   public List<String> getIdList() {
     return this.myParametersIds;
@@ -53,14 +75,46 @@ public class ChangeMethodSignatureParameters {
       }
     }).toListSequence();
   }
+  public Map<SNode, SNode> getDefaultValues() {
+    final Map<SNode, SNode> mapping = MapSequence.fromMap(new HashMap<SNode, SNode>());
+
+    ListSequence.fromList(SLinkOperations.getChildren(this.getRefactoringEditor(), LINKS.defaultValues$Rz3w)).visitAll(new IVisitor<SNode>() {
+      public void visit(SNode it) {
+        MapSequence.fromMap(mapping).put(SLinkOperations.getTarget(it, LINKS.targetParameter$Z0Wh), SLinkOperations.getTarget(it, LINKS.value$mPkX));
+      }
+    });
+
+    return mapping;
+  }
+  private static SNode createFunctionRefactoringEditor_viavx4_a0f0e(SNode p0, SNode p1) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.FunctionRefactoringEditor$PA);
+    n0.setReferenceTarget(LINKS.sourceMethod$RxSr, p0);
+    n0.forChild(LINKS.targetMethod$Rymt).initNode(p1, CONCEPTS.BaseMethodDeclaration$kD, true);
+    return n0.getResult();
+  }
+  private static SNode createExistingParameter_viavx4_a0a0j0e(SNode p0) {
+    SNodeBuilder n0 = new SNodeBuilder().init(CONCEPTS.ExistingParameter$KR);
+    n0.setReferenceTarget(LINKS.sourceParameter$37DV, p0);
+    return n0.getResult();
+  }
 
   private static final class LINKS {
     /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SContainmentLink targetMethod$Rymt = MetaAdapterFactory.getContainmentLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17c62ad6L, 0x61844b0b17c62ad9L, "targetMethod");
+    /*package*/ static final SContainmentLink body$5xQk = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
     /*package*/ static final SContainmentLink visibility$Yyua = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
     /*package*/ static final SContainmentLink returnType$5xoi = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1fdL, "returnType");
+    /*package*/ static final SContainmentLink defaultValues$Rz3w = MetaAdapterFactory.getContainmentLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17c62ad6L, 0x61844b0b17c62adcL, "defaultValues");
+    /*package*/ static final SReferenceLink targetParameter$Z0Wh = MetaAdapterFactory.getReferenceLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x254236dcd5850932L, 0x61844b0b17cc9388L, "targetParameter");
+    /*package*/ static final SContainmentLink value$mPkX = MetaAdapterFactory.getContainmentLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x254236dcd5850932L, 0x254236dcd5850935L, "value");
+    /*package*/ static final SReferenceLink sourceMethod$RxSr = MetaAdapterFactory.getReferenceLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17c62ad6L, 0x61844b0b17c62ad7L, "sourceMethod");
+    /*package*/ static final SReferenceLink sourceParameter$37DV = MetaAdapterFactory.getReferenceLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17cb8b46L, 0x61844b0b17dd6887L, "sourceParameter");
   }
 
   private static final class CONCEPTS {
+    /*package*/ static final SConcept ExistingParameter$KR = MetaAdapterFactory.getConcept(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17cb8b46L, "jetbrains.mps.java.workbench.refactoring.structure.ExistingParameter");
     /*package*/ static final SInterfaceConcept IVisible$zu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+    /*package*/ static final SConcept FunctionRefactoringEditor$PA = MetaAdapterFactory.getConcept(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17c62ad6L, "jetbrains.mps.java.workbench.refactoring.structure.FunctionRefactoringEditor");
+    /*package*/ static final SConcept BaseMethodDeclaration$kD = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, "jetbrains.mps.baseLanguage.structure.BaseMethodDeclaration");
   }
 }

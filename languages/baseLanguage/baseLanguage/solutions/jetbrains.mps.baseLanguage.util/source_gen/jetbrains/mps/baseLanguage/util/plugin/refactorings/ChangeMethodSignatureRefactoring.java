@@ -6,16 +6,18 @@ import jetbrains.mps.annotations.GeneratedClass;
 import org.jetbrains.mps.openapi.model.SNode;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
+import java.util.Map;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.IAttributeDescriptor;
 import jetbrains.mps.internal.collections.runtime.MapSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import org.jetbrains.mps.openapi.language.SProperty;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SInterfaceConcept;
 import org.jetbrains.mps.openapi.language.SConcept;
 
@@ -24,11 +26,9 @@ public class ChangeMethodSignatureRefactoring {
   private ChangeMethodSignatureParameters myParameters;
   private SNode myDeclaration;
   private List<SNode> myUssages = new ArrayList<SNode>();
-  private Map<SNode, SNode> defaultValues;
-  public ChangeMethodSignatureRefactoring(ChangeMethodSignatureParameters params, SNode declaration, Map<SNode, SNode> defaultValues) {
+  public ChangeMethodSignatureRefactoring(ChangeMethodSignatureParameters params, SNode declaration) {
     this.myParameters = params;
     this.myDeclaration = declaration;
-    this.defaultValues = defaultValues;
   }
   public void doRefactoring() {
     SPropertyOperations.assign(this.myDeclaration, PROPS.name$MnvL, SPropertyOperations.getString(this.myParameters.getDeclaration(), PROPS.name$MnvL));
@@ -49,16 +49,20 @@ public class ChangeMethodSignatureRefactoring {
       MethodCallAdapter call = new MethodCallAdapter(node);
       List<SNode> oldArgs = ListSequence.fromListWithValues(new ArrayList<SNode>(), call.getMethodArguments());
       call.removeArguments();
-      for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(this.myParameters.getDeclaration(), LINKS.parameter$5xBj))) {
-        int index = ListSequence.fromList(this.myParameters.getIdList()).indexOf(parameter.getNodeId().toString());
-        if (index != -1) {
+      Map<SNode, SNode> defaultValues = myParameters.getDefaultValues();
+
+      for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(this.myParameters.getRefactoringEditor(), LINKS.targetMethod$Rymt), LINKS.parameter$5xBj))) {
+        if ((new IAttributeDescriptor.NodeAttribute(CONCEPTS.ExistingParameter$KR).get(parameter) != null)) {
+          int index = ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).indexOf(SLinkOperations.getTarget(new IAttributeDescriptor.NodeAttribute(CONCEPTS.ExistingParameter$KR).get(parameter), LINKS.sourceParameter$37DV));
           call.addArgument(ListSequence.fromList(oldArgs).getElement(index));
-        } else if (MapSequence.fromMap(defaultValues).containsKey(parameter)) {
+        } else if (MapSequence.fromMap(defaultValues).containsKey(parameter) && (MapSequence.fromMap(defaultValues).get(parameter) != null)) {
           call.addArgument(SNodeOperations.copyNode(MapSequence.fromMap(defaultValues).get(parameter)));
         } else {
           call.addArgument(SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral")));
         }
       }
+
+      // TODO type migration 
     }
   }
   public SNode getDeclaration() {
@@ -67,17 +71,19 @@ public class ChangeMethodSignatureRefactoring {
   private void changeParameters() {
     List<SNode> oldParams = ListSequence.fromListWithValues(new ArrayList<SNode>(), SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj));
     ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).clear();
-    for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(this.myParameters.getDeclaration(), LINKS.parameter$5xBj))) {
-      int index = ListSequence.fromList(this.myParameters.getIdList()).indexOf(parameter.getNodeId().toString());
-      if (index == -1) {
-        ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).addElement(SNodeOperations.copyNode(parameter));
+
+    for (SNode parameter : ListSequence.fromList(SLinkOperations.getChildren(SLinkOperations.getTarget(this.myParameters.getRefactoringEditor(), LINKS.targetMethod$Rymt), LINKS.parameter$5xBj))) {
+      if ((new IAttributeDescriptor.NodeAttribute(CONCEPTS.ExistingParameter$KR).get(parameter) != null)) {
+        int index = ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).indexOf(SLinkOperations.getTarget(new IAttributeDescriptor.NodeAttribute(CONCEPTS.ExistingParameter$KR).get(parameter), LINKS.sourceParameter$37DV));
+        SNode migrated = ListSequence.fromList(oldParams).getElement(index);
+        SLinkOperations.setTarget(migrated, LINKS.type$a1UY, SNodeOperations.copyNode(SLinkOperations.getTarget(parameter, LINKS.type$a1UY)));
+        SPropertyOperations.assign(migrated, PROPS.name$MnvL, SPropertyOperations.getString(parameter, PROPS.name$MnvL).substring(0));
+        ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).addElement(migrated);
       } else {
-        ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).addElement(ListSequence.fromList(oldParams).getElement(index));
-        SNode newParam = ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).last();
-        SPropertyOperations.assign(newParam, PROPS.name$MnvL, SPropertyOperations.getString(parameter, PROPS.name$MnvL).substring(0));
-        SLinkOperations.setTarget(newParam, LINKS.type$a1UY, SNodeOperations.copyNode(SLinkOperations.getTarget(parameter, LINKS.type$a1UY)));
+        ListSequence.fromList(SLinkOperations.getChildren(this.myDeclaration, LINKS.parameter$5xBj)).addElement(SNodeOperations.copyNode(parameter));
       }
     }
+
   }
   public void setUsages(List<SNode> ussages) {
     this.myUssages = ussages;
@@ -95,11 +101,14 @@ public class ChangeMethodSignatureRefactoring {
     /*package*/ static final SContainmentLink visibility$Yyua = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, 0x112670d886aL, "visibility");
     /*package*/ static final SContainmentLink throwsItem$CdW$ = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0x10f383d6949L, "throwsItem");
     /*package*/ static final SContainmentLink parameter$5xBj = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1feL, "parameter");
+    /*package*/ static final SReferenceLink sourceParameter$37DV = MetaAdapterFactory.getReferenceLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17cb8b46L, 0x61844b0b17dd6887L, "sourceParameter");
+    /*package*/ static final SContainmentLink targetMethod$Rymt = MetaAdapterFactory.getContainmentLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17c62ad6L, 0x61844b0b17c62ad9L, "targetMethod");
     /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 
   private static final class CONCEPTS {
     /*package*/ static final SInterfaceConcept IVisible$zu = MetaAdapterFactory.getInterfaceConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x112670d273fL, "jetbrains.mps.baseLanguage.structure.IVisible");
+    /*package*/ static final SConcept ExistingParameter$KR = MetaAdapterFactory.getConcept(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x61844b0b17cb8b46L, "jetbrains.mps.java.workbench.refactoring.structure.ExistingParameter");
     /*package*/ static final SConcept InstanceMethodDeclaration$39 = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b21dL, "jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration");
     /*package*/ static final SConcept StaticMethodDeclaration$FJ = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfbbebabf0aL, "jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration");
     /*package*/ static final SConcept Classifier$Ix = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x101d9d3ca30L, "jetbrains.mps.baseLanguage.structure.Classifier");

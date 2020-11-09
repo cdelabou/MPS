@@ -5,10 +5,11 @@ package jetbrains.mps.java.workbench.actions;
 import jetbrains.mps.annotations.GeneratedClass;
 import jetbrains.mps.ide.platform.refactoring.RefactoringDialog;
 import org.jetbrains.mps.openapi.model.SNode;
+import jetbrains.mps.project.Project;
+import jetbrains.mps.nodeEditor.Highlighter;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.ChangeMethodSignatureParameters;
 import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.ide.embeddableEditor.EmbeddableEditor;
-import jetbrains.mps.project.Project;
 import java.util.List;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.ChangeMethodSignatureRefactoring;
 import org.jetbrains.annotations.NotNull;
@@ -16,9 +17,6 @@ import jetbrains.mps.project.MPSProject;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
-import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
 import javax.swing.border.TitledBorder;
@@ -35,48 +33,55 @@ import org.jetbrains.mps.openapi.module.ModelAccess;
 import jetbrains.mps.baseLanguage.util.plugin.refactorings.MethodRefactoringUtils;
 import jetbrains.mps.ide.project.ProjectHelper;
 import jetbrains.mps.progress.ProgressMonitorAdapter;
-import java.util.Map;
-import jetbrains.mps.internal.collections.runtime.MapSequence;
-import java.util.HashMap;
 import jetbrains.mps.internal.collections.runtime.ListSequence;
-import org.jetbrains.mps.openapi.language.SContainmentLink;
 
 @GeneratedClass(node = "r:147fb550-8026-46fe-830c-81449036a4c3(jetbrains.mps.java.workbench.actions)/6812098398776640439", model = "r:147fb550-8026-46fe-830c-81449036a4c3(jetbrains.mps.java.workbench.actions)")
 /*package*/ class ChangeMethodSignatureDialog extends RefactoringDialog {
-  private SNode myDeclaration;
+  private final SNode myDeclaration;
+  private final Project myProject;
+  private final Highlighter myHighlighter;
+
   private ChangeMethodSignatureParameters myParameters;
   private SModel myTempModel;
   private EmbeddableEditor myEditor;
-  private Project myProject;
   private List<ChangeMethodSignatureRefactoring> myRefactorings = null;
+
 
   public ChangeMethodSignatureDialog(@NotNull MPSProject project, SNode node) {
     super(project.getProject(), true);
     setTitle("Change Method Signature");
     this.myProject = project;
     this.myDeclaration = node;
-    // TODO: call this constructor inside read action? 
+
     myProject.getModelAccess().runReadAction(new Runnable() {
       public void run() {
         ChangeMethodSignatureDialog.this.myParameters = new ChangeMethodSignatureParameters(myDeclaration);
       }
     });
+
+    // Highlighter for model checking 
+    myHighlighter = project.getComponent(Highlighter.class);
+
     init();
   }
 
-  private JComponent createSingnaturePanel() {
+  private JComponent createSignaturePanel() {
     JPanel panel = new JPanel(new BorderLayout());
     myProject.getRepository().getModelAccess().executeCommand(new Runnable() {
       public void run() {
-        SNode baseMethodDeclaration = ChangeMethodSignatureDialog.this.myParameters.getDeclaration();
-        SLinkOperations.setTarget(baseMethodDeclaration, LINKS.body$5xQk, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x4975dc2bdcfa0c49L, "jetbrains.mps.baseLanguage.structure.StubStatementList")));
+        SNode refactoringEditor = myParameters.getRefactoringEditor();
 
         myTempModel = TemporaryModels.getInstance().createEditable(true, TempModuleOptions.forDefaultModule());
-        myTempModel.addRootNode(baseMethodDeclaration);
+        myTempModel.addRootNode(refactoringEditor);
+        // <node>
         TemporaryModels.getInstance().addMissingImports(myTempModel);
 
         ChangeMethodSignatureDialog.this.myEditor = new EmbeddableEditor(myProject, true);
-        myEditor.editNode(baseMethodDeclaration);
+        myEditor.editNode(refactoringEditor);
+        myEditor.getEditor().selectNotify();
+
+        // Type checking 
+        myHighlighter.addAdditionalEditor(myEditor.getEditor());
       }
     });
     panel.setBorder(new TitledBorder("Method signature"));
@@ -99,7 +104,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
     c.gridy = 0;
     c.weightx = 1;
     c.weighty = 1;
-    panel.add(this.createSingnaturePanel(), c);
+    panel.add(this.createSignaturePanel(), c);
     return panel;
   }
 
@@ -118,38 +123,10 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       }
     });
 
-    // Get default values for new parameters (if any) 
-    final Wrappers._T<Map<SNode, SNode>> defaultValues = new Wrappers._T<Map<SNode, SNode>>(MapSequence.fromMap(new HashMap<SNode, SNode>()));
-    final Wrappers._T<List<SNode>> newParameters = new Wrappers._T<List<SNode>>(null);
-
-    myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
-      public void run() {
-        if (myParameters.hasNewParameters()) {
-          newParameters.value = myParameters.getNewParameters();
-        }
-      }
-    });
-
-    if (myParameters != null) {
-      final SetNewParametersValueDialog dialog = new SetNewParametersValueDialog(as_vatimf_a0a0a0a9a51(myProject, MPSProject.class), newParameters.value);
-      dialog.show();
-
-      if (!(dialog.isOK())) {
-        this.doCancelAction();
-        return;
-      }
-
-      myProject.getRepository().getModelAccess().runReadAction(new Runnable() {
-        public void run() {
-          defaultValues.value = dialog.getDefaultValues();
-        }
-      });
-    }
-
     ListSequence.fromList(methodsToRefactor.value).addElement(myDeclaration);
     myRefactorings = ListSequence.fromList(new ArrayList<ChangeMethodSignatureRefactoring>());
     for (SNode method : ListSequence.fromList(methodsToRefactor.value)) {
-      ListSequence.fromList(myRefactorings).addElement(new ChangeMethodSignatureRefactoring(this.myParameters, method, defaultValues.value));
+      ListSequence.fromList(myRefactorings).addElement(new ChangeMethodSignatureRefactoring(this.myParameters, method));
     }
 
 
@@ -159,6 +136,7 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
   @Override
   protected void dispose() {
     if (myEditor != null) {
+      myHighlighter.removeAdditionalEditor(myEditor.getEditor());
       myEditor.disposeEditor();
       myEditor = null;
     }
@@ -171,12 +149,5 @@ import org.jetbrains.mps.openapi.language.SContainmentLink;
       });
     }
     super.dispose();
-  }
-  private static <T> T as_vatimf_a0a0a0a9a51(Object o, Class<T> type) {
-    return (type.isInstance(o) ? (T) o : null);
-  }
-
-  private static final class LINKS {
-    /*package*/ static final SContainmentLink body$5xQk = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8cc56b1fcL, 0xf8cc56b1ffL, "body");
   }
 }

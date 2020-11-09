@@ -23,16 +23,19 @@ import org.jetbrains.mps.openapi.model.SModel;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.smodel.adapter.structure.MetaAdapterFactory;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
-import javax.swing.JLabel;
-import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
+import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
+import jetbrains.mps.smodel.behaviour.BHReflection;
+import jetbrains.mps.core.aspects.behaviour.SMethodTrimmedId;
 import jetbrains.mps.smodel.tempmodel.TemporaryModels;
 import jetbrains.mps.smodel.tempmodel.TempModuleOptions;
+import org.jetbrains.mps.openapi.language.SReferenceLink;
 import org.jetbrains.mps.openapi.language.SContainmentLink;
-import org.jetbrains.mps.openapi.language.SProperty;
+import org.jetbrains.mps.openapi.language.SConcept;
 
 @GeneratedClass(node = "r:147fb550-8026-46fe-830c-81449036a4c3(jetbrains.mps.java.workbench.actions)/7450207211691129644", model = "r:147fb550-8026-46fe-830c-81449036a4c3(jetbrains.mps.java.workbench.actions)")
 /*package*/ class SetNewParametersValueDialog extends RefactoringDialog {
   private final List<DefaultValueEditorComponent> parameters;
+
   public SetNewParametersValueDialog(@NotNull final MPSProject project, List<SNode> newParameters) {
     super(project.getProject(), true);
 
@@ -92,18 +95,23 @@ import org.jetbrains.mps.openapi.language.SProperty;
       this.newParameter = newParameter;
 
       // Set a parent to host the value 
-      // TODO: useful? 
-      this.parentExpression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, "jetbrains.mps.baseLanguage.structure.ParenthesizedExpression"));
-      SLinkOperations.setTarget(this.parentExpression, LINKS.expression$TlhM, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral")));
+      this.parentExpression = SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x254236dcd5850932L, "jetbrains.mps.java.workbench.refactoring.structure.DefaultParameterEditor"));
 
       this.project = project;
     }
 
-    public void buildOn(final JPanel panel) {
+    public void buildOn(JPanel panel) {
       project.getRepository().getModelAccess().executeCommand(new Runnable() {
         public void run() {
-          // Label 
-          panel.add(new JLabel(SPropertyOperations.getString(newParameter, PROPS.name$MnvL)));
+          SLinkOperations.setTarget(DefaultValueEditorComponent.this.parentExpression, LINKS.targetParameter$Z0Wh, newParameter);
+          SLinkOperations.setTarget(DefaultValueEditorComponent.this.parentExpression, LINKS.value$mPkX, SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral")));
+
+          {
+            final SNode primitive = SLinkOperations.getTarget(newParameter, LINKS.type$a1UY);
+            if (SNodeOperations.isInstanceOf(primitive, CONCEPTS.PrimitiveType$sR)) {
+              SLinkOperations.setTarget(DefaultValueEditorComponent.this.parentExpression, LINKS.value$mPkX, ((SNode) BHReflection.invoke0(primitive, CONCEPTS.Type$bu, SMethodTrimmedId.create("createDefaultTypeExpression", null, "2UvJdVpqUA4"))));
+            }
+          }
 
           // Temporary model for the edition of the default value 
           model = TemporaryModels.getInstance().createEditable(true, TempModuleOptions.forDefaultModule());
@@ -138,15 +146,18 @@ import org.jetbrains.mps.openapi.language.SProperty;
       return this.newParameter;
     }
     public SNode getDefaultValue() {
-      return SLinkOperations.getTarget(this.parentExpression, LINKS.expression$TlhM);
+      return ((SLinkOperations.getTarget(this.parentExpression, LINKS.value$mPkX) == null) ? SConceptOperations.createNewNode(MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf940cd6167L, "jetbrains.mps.baseLanguage.structure.NullLiteral")) : SLinkOperations.getTarget(this.parentExpression, LINKS.value$mPkX));
     }
   }
 
   private static final class LINKS {
-    /*package*/ static final SContainmentLink expression$TlhM = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xfb4ed32b7fL, 0xfb4ed32b80L, "expression");
+    /*package*/ static final SReferenceLink targetParameter$Z0Wh = MetaAdapterFactory.getReferenceLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x254236dcd5850932L, 0x61844b0b17cc9388L, "targetParameter");
+    /*package*/ static final SContainmentLink value$mPkX = MetaAdapterFactory.getContainmentLink(0xc75b79a8d23d46a4L, 0x971e3ec1fe7c20d8L, 0x254236dcd5850932L, 0x254236dcd5850935L, "value");
+    /*package*/ static final SContainmentLink type$a1UY = MetaAdapterFactory.getContainmentLink(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x450368d90ce15bc3L, 0x4ed4d318133c80ceL, "type");
   }
 
-  private static final class PROPS {
-    /*package*/ static final SProperty name$MnvL = MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name");
+  private static final class CONCEPTS {
+    /*package*/ static final SConcept PrimitiveType$sR = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0x10f0ad8bde4L, "jetbrains.mps.baseLanguage.structure.PrimitiveType");
+    /*package*/ static final SConcept Type$bu = MetaAdapterFactory.getConcept(0xf3061a5392264cc5L, 0xa443f952ceaf5816L, 0xf8c37f506dL, "jetbrains.mps.baseLanguage.structure.Type");
   }
 }
