@@ -25,6 +25,16 @@
     <classNode dependClassName="org.jetbrains.annotations.Nullable" />
     <classNode extendsClassName="jetbrains.mps.smodel.runtime.EnumerationDescriptorBase" />
   </dependency>
+  <dependency className="jetbrains.mps.lang.generator.structure.EnumerationDescriptor_LoopMacroVariable">
+    <classNode dependClassName="java.lang.Override" />
+    <classNode dependClassName="java.lang.String" />
+    <classNode dependClassName="java.util.List" />
+    <classNode dependClassName="jetbrains.mps.lang.smodel.EnumerationLiteralsIndex" />
+    <classNode dependClassName="jetbrains.mps.smodel.runtime.EnumerationDescriptor" />
+    <classNode dependClassName="org.jetbrains.annotations.NotNull" />
+    <classNode dependClassName="org.jetbrains.annotations.Nullable" />
+    <classNode extendsClassName="jetbrains.mps.smodel.runtime.EnumerationDescriptorBase" />
+  </dependency>
   <dependency className="jetbrains.mps.lang.generator.structure.EnumerationDescriptor_MappingScriptKind">
     <classNode dependClassName="java.lang.Override" />
     <classNode dependClassName="java.lang.String" />
@@ -50,6 +60,7 @@
     <classNode dependClassName="java.util.Arrays" />
     <classNode dependClassName="java.util.Collection" />
     <classNode dependClassName="jetbrains.mps.lang.generator.structure.EnumerationDescriptor_GeneratorMessageType" />
+    <classNode dependClassName="jetbrains.mps.lang.generator.structure.EnumerationDescriptor_LoopMacroVariable" />
     <classNode dependClassName="jetbrains.mps.lang.generator.structure.EnumerationDescriptor_MappingScriptKind" />
     <classNode dependClassName="jetbrains.mps.lang.generator.structure.LanguageConceptSwitch" />
     <classNode dependClassName="jetbrains.mps.smodel.adapter.ids.MetaIdFactory" />

@@ -13,7 +13,7 @@
   <concept fqn="c:f3061a53-9226-4cc5-a443-f952ceaf5816/1070475587102:jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
   <root>
     <file name="ConstraintsAspectDescriptor.java">
-      <unit at="13,0,55,0" name="jetbrains.mps.lang.generator.constraints.ConstraintsAspectDescriptor" />
+      <unit at="13,0,57,0" name="jetbrains.mps.lang.generator.constraints.ConstraintsAspectDescriptor" />
     </file>
     <file name="GeneratedFeedbackAspectConstraints.java">
       <unit at="10,0,17,0" name="jetbrains.mps.lang.generator.constraints.GeneratedFeedbackAspectConstraints" />
@@ -156,6 +156,55 @@
       <unit id="1213104840278" at="37,19,46,9" name="jetbrains.mps.lang.generator.constraints.CreateRootRule_Constraints$1$1" />
       <unit id="1213104840278" at="29,48,48,5" name="jetbrains.mps.lang.generator.constraints.CreateRootRule_Constraints$1" />
       <unit id="1213104840277" at="22,0,63,0" name="jetbrains.mps.lang.generator.constraints.CreateRootRule_Constraints" />
+    </file>
+  </root>
+  <root nodeRef="r:00000000-0000-4000-0000-011c895902e2(jetbrains.mps.lang.generator.constraints)/2880994019885266656">
+    <file name="AbstractNodeMacroNamespace_Constraints.java">
+      <node id="2880994019885266656" at="21,51,22,50" concept="10" />
+      <node id="2880994019885266656" at="29,127,30,128" concept="4" />
+      <node id="2880994019885266656" at="30,128,31,0" concept="7" />
+      <node id="2880994019885266656" at="32,55,33,71" concept="1" />
+      <node id="2880994019885266656" at="34,9,35,0" concept="7" />
+      <node id="2880994019885266656" at="35,0,36,22" concept="5" />
+      <node id="1501378878163829653" at="40,128,41,123" concept="4" />
+      <node id="4419897590416943882" at="41,123,42,105" concept="4" />
+      <node id="1501378878163831509" at="42,105,43,0" concept="7" />
+      <node id="1501378878163843883" at="43,0,44,114" concept="6" />
+      <node id="1501378878163831682" at="44,114,45,334" concept="5" />
+      <node id="2880994019885266656" at="47,0,48,0" concept="8" trace="canBeChildBreakingPoint" />
+      <node id="2880994019885266656" at="50,0,51,0" concept="8" trace="AbstractNodeMacroNamespace$Cq" />
+      <node id="2880994019885266656" at="51,0,52,0" concept="8" trace="TemplateQueryBase$zY" />
+      <node id="2880994019885266656" at="21,0,24,0" concept="0" trace="AbstractNodeMacroNamespace_Constraints#()V" />
+      <node id="2880994019885266656" at="31,0,34,9" concept="2" />
+      <node id="2880994019885266656" at="40,0,47,0" concept="9" trace="staticCanBeAChild#(Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/model/SNode;Lorg/jetbrains/mps/openapi/language/SAbstractConcept;Lorg/jetbrains/mps/openapi/language/SContainmentLink;)Z" />
+      <node id="2880994019885266656" at="28,0,38,0" concept="3" trace="invoke#(Ljetbrains/mps/smodel/runtime/ConstraintContext_CanBeChild;Ljetbrains/mps/smodel/runtime/CheckingNodeContext;)Ljava/lang/Boolean;" />
+      <node id="2880994019885266656" at="26,103,38,6" concept="5" />
+      <node id="2880994019885266656" at="25,0,40,0" concept="3" trace="calculateCanBeChildConstraint#()Ljetbrains/mps/smodel/runtime/ConstraintFunction;" />
+      <scope id="2880994019885266656" at="21,51,22,50" />
+      <scope id="2880994019885266656" at="32,55,33,71" />
+      <scope id="2880994019885266656" at="21,0,24,0" />
+      <scope id="2880994019885266658" at="40,128,45,334">
+        <var name="concept" id="4419897590416943883" />
+        <var name="templateQueryAncestor" id="1501378878163829654" />
+      </scope>
+      <scope id="2880994019885266656" at="29,127,36,22">
+        <var name="result" id="2880994019885266656" />
+      </scope>
+      <scope id="2880994019885266656" at="40,0,47,0">
+        <var name="childConcept" id="2880994019885266656" />
+        <var name="link" id="2880994019885266656" />
+        <var name="node" id="2880994019885266656" />
+        <var name="parentNode" id="2880994019885266656" />
+      </scope>
+      <scope id="2880994019885266656" at="28,0,38,0">
+        <var name="checkingNodeContext" id="2880994019885266656" />
+        <var name="context" id="2880994019885266656" />
+      </scope>
+      <scope id="2880994019885266656" at="26,103,38,6" />
+      <scope id="2880994019885266656" at="25,0,40,0" />
+      <unit id="2880994019885266656" at="49,0,53,0" name="jetbrains.mps.lang.generator.constraints.AbstractNodeMacroNamespace_Constraints$CONCEPTS" />
+      <unit id="2880994019885266656" at="27,15,38,5" name="jetbrains.mps.lang.generator.constraints.AbstractNodeMacroNamespace_Constraints$1" />
+      <unit id="2880994019885266656" at="20,0,54,0" name="jetbrains.mps.lang.generator.constraints.AbstractNodeMacroNamespace_Constraints" />
     </file>
   </root>
   <root nodeRef="r:00000000-0000-4000-0000-011c895902e2(jetbrains.mps.lang.generator.constraints)/4035562641222625939">

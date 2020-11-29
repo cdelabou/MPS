@@ -440,6 +440,11 @@ public final class RuleUtil {
   public static SNode getDismissTopRule_message(SNode dismissTopRuleConsequence) {
     return SLinkOperations.getTarget(dismissTopRuleConsequence, LINKS.generatorMessage$yHHk);
   }
+  /**
+   * 
+   * @deprecated 
+   */
+  @Deprecated
   public static String getLoopMacroCounterVarName(SNode loopMacro) {
     return SPropertyOperations.getString(loopMacro, PROPS.counterVarName$YOXn);
   }

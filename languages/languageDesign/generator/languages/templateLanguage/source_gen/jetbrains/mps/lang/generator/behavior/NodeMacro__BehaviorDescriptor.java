@@ -30,18 +30,22 @@ public final class NodeMacro__BehaviorDescriptor extends BaseBHDescriptor {
   private static final SAbstractConcept CONCEPT = MetaAdapterFactory.getConcept(0xb401a68083254110L, 0x8fd384331ff25befL, 0xfd47ed6742L, "jetbrains.mps.lang.generator.structure.NodeMacro");
 
   public static final SMethod<SNode> getInputNodeTypeInsideOfMacro_idhEwIosJ = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInputNodeTypeInsideOfMacro").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIosJ").build();
+  public static final SMethod<SNode> getPreviousInputNodeType_id1kTmBBnrdlu = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPreviousInputNodeType").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("1kTmBBnrdlu").build();
   public static final SMethod<SNode> getPreviousNodeMacro_idhEwIot7 = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getPreviousNodeMacro").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIot7").build();
   public static final SMethod<String> getPresentation_idhEwIMiw = new SMethodBuilder<String>(new SJavaCompoundTypeImpl(String.class)).name("getPresentation").modifiers(SModifiersImpl.create(8, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("hEwIMiw").build();
   /*package*/ static final SMethod<SNode> getEnclosingMacro_idhEwIoti = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getEnclosingMacro").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("hEwIoti").build(SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""), SMethodBuilder.createJavaParameter((Class<SNode>) ((Class) Object.class), ""));
   /*package*/ static final SMethod<SNode> getInputNodeTypeFromEnvironment_idhEwIouc = new SMethodBuilder<SNode>(new SJavaCompoundTypeImpl((Class<SNode>) ((Class) Object.class))).name("getInputNodeTypeFromEnvironment").modifiers(SModifiersImpl.create(0, AccessPrivileges.PRIVATE)).concept(CONCEPT).id("hEwIouc").build();
   public static final SMethod<Boolean> hasMappingLabel_id5KmckUrKj9u = new SMethodBuilder<Boolean>(new SJavaCompoundTypeImpl(Boolean.TYPE)).name("hasMappingLabel").modifiers(SModifiersImpl.create(0, AccessPrivileges.PUBLIC)).concept(CONCEPT).id("5KmckUrKj9u").build();
 
-  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInputNodeTypeInsideOfMacro_idhEwIosJ, getPreviousNodeMacro_idhEwIot7, getPresentation_idhEwIMiw, getEnclosingMacro_idhEwIoti, getInputNodeTypeFromEnvironment_idhEwIouc, hasMappingLabel_id5KmckUrKj9u);
+  private static final List<SMethod<?>> BH_METHODS = Arrays.<SMethod<?>>asList(getInputNodeTypeInsideOfMacro_idhEwIosJ, getPreviousInputNodeType_id1kTmBBnrdlu, getPreviousNodeMacro_idhEwIot7, getPresentation_idhEwIMiw, getEnclosingMacro_idhEwIoti, getInputNodeTypeFromEnvironment_idhEwIouc, hasMappingLabel_id5KmckUrKj9u);
 
   private static void ___init___(@NotNull SNode __thisNode__) {
   }
 
   /*package*/ static SNode getInputNodeTypeInsideOfMacro_idhEwIosJ(@NotNull SNode __thisNode__) {
+    return NodeMacro__BehaviorDescriptor.getPreviousInputNodeType_id1kTmBBnrdlu.invoke(__thisNode__);
+  }
+  /*package*/ static SNode getPreviousInputNodeType_id1kTmBBnrdlu(@NotNull SNode __thisNode__) {
     SNode prevNodeMacro = NodeMacro__BehaviorDescriptor.getPreviousNodeMacro_idhEwIot7.invoke(__thisNode__);
     if (prevNodeMacro != null) {
       return NodeMacro__BehaviorDescriptor.getInputNodeTypeInsideOfMacro_idhEwIosJ.invoke(prevNodeMacro);
@@ -121,14 +125,16 @@ public final class NodeMacro__BehaviorDescriptor extends BaseBHDescriptor {
       case 0:
         return (T) ((SNode) getInputNodeTypeInsideOfMacro_idhEwIosJ(node));
       case 1:
-        return (T) ((SNode) getPreviousNodeMacro_idhEwIot7(node));
+        return (T) ((SNode) getPreviousInputNodeType_id1kTmBBnrdlu(node));
       case 2:
-        return (T) ((String) getPresentation_idhEwIMiw(node));
+        return (T) ((SNode) getPreviousNodeMacro_idhEwIot7(node));
       case 3:
-        return (T) ((SNode) getEnclosingMacro_idhEwIoti(node, (SNode) parameters[0], (SNode) parameters[1]));
+        return (T) ((String) getPresentation_idhEwIMiw(node));
       case 4:
-        return (T) ((SNode) getInputNodeTypeFromEnvironment_idhEwIouc(node));
+        return (T) ((SNode) getEnclosingMacro_idhEwIoti(node, (SNode) parameters[0], (SNode) parameters[1]));
       case 5:
+        return (T) ((SNode) getInputNodeTypeFromEnvironment_idhEwIouc(node));
+      case 6:
         return (T) ((Boolean) hasMappingLabel_id5KmckUrKj9u(node));
       default:
         throw new BHMethodNotFoundException(this, method);

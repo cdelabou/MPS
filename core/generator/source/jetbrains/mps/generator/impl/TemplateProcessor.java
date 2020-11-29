@@ -378,6 +378,8 @@ public final class TemplateProcessor implements ITemplateProcessor {
         if (counterVarName != null) {
           ctx = ctx.withVariable("cv:" + counterVarName, i);
         }
+        ctx = ctx.withVariable("loop:index", i);
+        ctx = ctx.withVariable("loop:inputNode", templateContext.getInput());
         ctx = ctx.subContext(newInputNode);
         List<SNode> _outputNodes = nextMacro(ctx);
         TracingUtil.deriveOriginalNode(newInputNode, _outputNodes, false);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<product version="3" modelHash="-9ws755pzidl1g9jmiiwx9zbjp3yi0gq">
-  <files names="ConceptPresentationAspectImpl.java:EnumerationDescriptor_GeneratorMessageType.java:EnumerationDescriptor_MappingScriptKind.java:IconContainer.java:LanguageConceptSwitch.java:StructureAspectDescriptor.java" />
+<product version="3" modelHash="-d2aa3l9s2871e42crq85p595nqqqxny">
+  <files names="ConceptPresentationAspectImpl.java:EnumerationDescriptor_GeneratorMessageType.java:EnumerationDescriptor_LoopMacroVariable.java:EnumerationDescriptor_MappingScriptKind.java:IconContainer.java:LanguageConceptSwitch.java:StructureAspectDescriptor.java" />
 </product>
 

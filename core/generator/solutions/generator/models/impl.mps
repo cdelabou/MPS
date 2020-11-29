@@ -268,6 +268,9 @@
       <concept id="8465538089690331500" name="jetbrains.mps.baseLanguage.javadoc.structure.CommentLine" flags="ng" index="TZ5HA">
         <child id="8970989240999019149" name="part" index="1dT_Ay" />
       </concept>
+      <concept id="8465538089690331492" name="jetbrains.mps.baseLanguage.javadoc.structure.DeprecatedBlockDocTag" flags="ng" index="TZ5HI">
+        <child id="2667874559098216723" name="text" index="3HnX3l" />
+      </concept>
       <concept id="2217234381367049075" name="jetbrains.mps.baseLanguage.javadoc.structure.CodeInlineDocTag" flags="ng" index="VVOAv">
         <child id="3106559687488741665" name="line" index="2Xj1qM" />
       </concept>
@@ -5579,6 +5582,14 @@
         <node concept="3Tqbb2" id="6RlRW_SSy$F" role="1tU5fm">
           <ref role="ehGHo" to="tpf8:ghWS0B3" resolve="LoopMacro" />
         </node>
+      </node>
+      <node concept="P$JXv" id="1kTmBBnxsmd" role="lGtFl">
+        <node concept="TZ5HI" id="1kTmBBnxsme" role="3nqlJM">
+          <node concept="TZ5HA" id="1kTmBBnxsmf" role="3HnX3l" />
+        </node>
+      </node>
+      <node concept="2AHcQZ" id="1kTmBBnxsmg" role="2AJF6D">
+        <ref role="2AI5Lk" to="wyt6:~Deprecated" resolve="Deprecated" />
       </node>
     </node>
     <node concept="2YIFZL" id="6xQoLnhyzxa" role="jymVt">

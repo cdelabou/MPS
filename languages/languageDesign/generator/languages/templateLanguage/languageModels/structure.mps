@@ -37,6 +37,9 @@
       <concept id="6491077959632463275" name="jetbrains.mps.lang.structure.structure.EnumPropertyMigrationInfo" flags="ng" index="3l_iC">
         <child id="6491077959632463286" name="oldProperty" index="3l_iP" />
       </concept>
+      <concept id="1224240836180" name="jetbrains.mps.lang.structure.structure.DeprecatedNodeAnnotation" flags="ig" index="asaX9">
+        <property id="1225118933224" name="comment" index="YLQ7P" />
+      </concept>
       <concept id="7862711839422615209" name="jetbrains.mps.lang.structure.structure.DocumentedNodeAnnotation" flags="ng" index="t5JxF">
         <property id="7862711839422615217" name="text" index="t5JxN" />
       </concept>
@@ -523,6 +526,9 @@
       <property role="TrG5h" value="counterVarName" />
       <property role="IQ2nx" value="7430509679011668804" />
       <ref role="AX2Wp" to="tpck:fKAOsGN" resolve="string" />
+      <node concept="asaX9" id="1MjKMbbT1_y" role="lGtFl">
+        <property role="YLQ7P" value="use LOOP.index instead" />
+      </node>
     </node>
   </node>
   <node concept="1TIwiD" id="gtpdMPS">
@@ -2169,6 +2175,40 @@
     <property role="R4oN_" value="insert call site node" />
     <ref role="1TJDcQ" node="fP7Vmt2" resolve="NodeMacro" />
     <node concept="M6xJ_" id="4B_nWyeQsem" role="lGtFl" />
+  </node>
+  <node concept="1TIwiD" id="2vVmcK3ii$G">
+    <property role="EcuMT" value="2880994019885263148" />
+    <property role="3GE5qa" value="macro.namespace" />
+    <property role="TrG5h" value="LoopMacroNamespaceAccessor" />
+    <property role="34LRSv" value="LOOP" />
+    <property role="R4oN_" value="access enclosing $LOOP$ macro variables" />
+    <ref role="1TJDcQ" node="2vVmcK3ii_Y" resolve="AbstractNodeMacroNamespace" />
+    <node concept="1TJgyi" id="1jlY2aid0ux" role="1TKVEl">
+      <property role="IQ2nx" value="1501378878163388321" />
+      <property role="TrG5h" value="variable" />
+      <ref role="AX2Wp" node="1jlY2aid0us" resolve="LoopMacroVariable" />
+    </node>
+  </node>
+  <node concept="1TIwiD" id="2vVmcK3ii_Y">
+    <property role="EcuMT" value="2880994019885263230" />
+    <property role="3GE5qa" value="macro.namespace" />
+    <property role="TrG5h" value="AbstractNodeMacroNamespace" />
+    <property role="R5$K7" value="true" />
+    <property role="R4oN_" value="abstract namespace accessor for a node macro" />
+    <ref role="1TJDcQ" to="tpee:fz3vP1J" resolve="Expression" />
+  </node>
+  <node concept="25R3W" id="1jlY2aid0us">
+    <property role="3F6X1D" value="1501378878163388316" />
+    <property role="3GE5qa" value="macro.namespace" />
+    <property role="TrG5h" value="LoopMacroVariable" />
+    <node concept="25R33" id="1jlY2aid0ut" role="25R1y">
+      <property role="3tVfz5" value="1501378878163388317" />
+      <property role="TrG5h" value="inputNode" />
+    </node>
+    <node concept="25R33" id="1jlY2aid0uu" role="25R1y">
+      <property role="3tVfz5" value="1501378878163388318" />
+      <property role="TrG5h" value="index" />
+    </node>
   </node>
 </model>
 

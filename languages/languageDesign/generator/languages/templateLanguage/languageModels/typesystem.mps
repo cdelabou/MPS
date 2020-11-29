@@ -7,6 +7,7 @@
     <use id="f3061a53-9226-4cc5-a443-f952ceaf5816" name="jetbrains.mps.baseLanguage" version="11" />
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
     <use id="fd392034-7849-419d-9071-12563d152375" name="jetbrains.mps.baseLanguage.closures" version="-1" />
+    <use id="af65afd8-f0dd-4942-87d9-63a55f2a9db1" name="jetbrains.mps.lang.behavior" version="2" />
     <devkit ref="00000000-0000-4000-0000-1de82b3a4936(jetbrains.mps.devkit.aspect.typesystem)" />
   </languages>
   <imports>
@@ -114,6 +115,7 @@
         <child id="1082485599094" name="ifFalseStatement" index="9aQIa" />
         <child id="1068580123160" name="condition" index="3clFbw" />
         <child id="1068580123161" name="ifTrue" index="3clFbx" />
+        <child id="1206060520071" name="elsifClauses" index="3eNLev" />
       </concept>
       <concept id="1068580123136" name="jetbrains.mps.baseLanguage.structure.StatementList" flags="sn" stub="5293379017992965193" index="3clFbS">
         <child id="1068581517665" name="statement" index="3cqZAp" />
@@ -134,6 +136,10 @@
       </concept>
       <concept id="1068581242863" name="jetbrains.mps.baseLanguage.structure.LocalVariableDeclaration" flags="nr" index="3cpWsn" />
       <concept id="1068581517677" name="jetbrains.mps.baseLanguage.structure.VoidType" flags="in" index="3cqZAl" />
+      <concept id="1206060495898" name="jetbrains.mps.baseLanguage.structure.ElsifClause" flags="ng" index="3eNFk2">
+        <child id="1206060619838" name="condition" index="3eO9$A" />
+        <child id="1206060644605" name="statementList" index="3eOfB_" />
+      </concept>
       <concept id="1079359253375" name="jetbrains.mps.baseLanguage.structure.ParenthesizedExpression" flags="nn" index="1eOMI4">
         <child id="1079359253376" name="expression" index="1eOMHV" />
       </concept>
@@ -199,6 +205,20 @@
       <concept id="1196350785117" name="jetbrains.mps.lang.quotation.structure.ReferenceAntiquotation" flags="ng" index="2c44tb" />
       <concept id="1196350785113" name="jetbrains.mps.lang.quotation.structure.Quotation" flags="nn" index="2c44tf">
         <child id="1196350785114" name="quotedNode" index="2c44tc" />
+      </concept>
+      <concept id="5455284157994012186" name="jetbrains.mps.lang.quotation.structure.NodeBuilderInitLink" flags="ng" index="2pIpSj">
+        <reference id="5455284157994012188" name="link" index="2pIpSl" />
+        <child id="1595412875168045827" name="initValue" index="28nt2d" />
+      </concept>
+      <concept id="5455284157993863837" name="jetbrains.mps.lang.quotation.structure.NodeBuilder" flags="nn" index="2pJPEk">
+        <child id="5455284157993863838" name="quotedNode" index="2pJPEn" />
+      </concept>
+      <concept id="5455284157993863840" name="jetbrains.mps.lang.quotation.structure.NodeBuilderNode" flags="nn" index="2pJPED">
+        <reference id="5455284157993910961" name="concept" index="2pJxaS" />
+        <child id="5455284157993911099" name="values" index="2pJxcM" />
+      </concept>
+      <concept id="8182547171709752110" name="jetbrains.mps.lang.quotation.structure.NodeBuilderExpression" flags="nn" index="36biLy">
+        <child id="8182547171709752112" name="expression" index="36biLW" />
       </concept>
     </language>
     <language id="7a5dda62-9140-4668-ab76-d5ed1746f2b2" name="jetbrains.mps.lang.typesystem">
@@ -6609,6 +6629,135 @@
           </node>
         </node>
       </node>
+    </node>
+  </node>
+  <node concept="1YbPZF" id="1jlY2aid1yz">
+    <property role="TrG5h" value="typeof_LoopMacroNamespace" />
+    <property role="3GE5qa" value="macro.namespace" />
+    <node concept="3clFbS" id="1jlY2aid1y$" role="18ibNy">
+      <node concept="3clFbJ" id="1jlY2aid28U" role="3cqZAp">
+        <node concept="2OqwBi" id="1jlY2aid2Cr" role="3clFbw">
+          <node concept="2OqwBi" id="1jlY2aid2jF" role="2Oq$k0">
+            <node concept="1YBJjd" id="1jlY2aid296" role="2Oq$k0">
+              <ref role="1YBMHb" node="1jlY2aid1yA" resolve="loopMacroNamespace" />
+            </node>
+            <node concept="3TrcHB" id="1jlY2aid2tn" role="2OqNvi">
+              <ref role="3TsBF5" to="tpf8:1jlY2aid0ux" resolve="variable" />
+            </node>
+          </node>
+          <node concept="21noJN" id="1jlY2aid2JH" role="2OqNvi">
+            <node concept="21nZrQ" id="1jlY2aid2JV" role="21noJM">
+              <ref role="21nZrZ" to="tpf8:1jlY2aid0uu" resolve="index" />
+            </node>
+          </node>
+        </node>
+        <node concept="3clFbS" id="1jlY2aid28W" role="3clFbx">
+          <node concept="3SKdUt" id="1jlY2aid737" role="3cqZAp">
+            <node concept="1PaTwC" id="1jlY2aid738" role="1aUNEU">
+              <node concept="3oM_SD" id="1jlY2aid739" role="1PaTwD">
+                <property role="3oM_SC" value="Counter" />
+              </node>
+              <node concept="3oM_SD" id="1jlY2aid73m" role="1PaTwD">
+                <property role="3oM_SC" value="variable" />
+              </node>
+            </node>
+          </node>
+          <node concept="1Z5TYs" id="1jlY2aid35Q" role="3cqZAp">
+            <node concept="mw_s8" id="1jlY2aid36a" role="1ZfhKB">
+              <node concept="2pJPEk" id="1jlY2aid366" role="mwGJk">
+                <node concept="2pJPED" id="1jlY2aid36l" role="2pJPEn">
+                  <ref role="2pJxaS" to="tpee:f_0OyhT" resolve="IntegerType" />
+                </node>
+              </node>
+            </node>
+            <node concept="mw_s8" id="1jlY2aid35T" role="1ZfhK$">
+              <node concept="1Z2H0r" id="1jlY2aid2K6" role="mwGJk">
+                <node concept="1YBJjd" id="1jlY2aid2LU" role="1Z2MuG">
+                  <ref role="1YBMHb" node="1jlY2aid1yA" resolve="loopMacroNamespace" />
+                </node>
+              </node>
+            </node>
+          </node>
+        </node>
+        <node concept="3eNFk2" id="1jlY2aid37S" role="3eNLev">
+          <node concept="3clFbS" id="1jlY2aid37U" role="3eOfB_">
+            <node concept="3SKdUt" id="1jlY2aid7fk" role="3cqZAp">
+              <node concept="1PaTwC" id="1jlY2aid7fl" role="1aUNEU">
+                <node concept="3oM_SD" id="1jlY2aid7fm" role="1PaTwD">
+                  <property role="3oM_SC" value="Input" />
+                </node>
+                <node concept="3oM_SD" id="1jlY2aid7rl" role="1PaTwD">
+                  <property role="3oM_SC" value="node" />
+                </node>
+              </node>
+            </node>
+            <node concept="3cpWs8" id="1jlY2aid6$q" role="3cqZAp">
+              <node concept="3cpWsn" id="1jlY2aid6$r" role="3cpWs9">
+                <property role="TrG5h" value="inputNodeType" />
+                <node concept="3Tqbb2" id="1jlY2aid4S8" role="1tU5fm">
+                  <ref role="ehGHo" to="tp25:gzTqbfa" resolve="SNodeType" />
+                </node>
+                <node concept="2pJPEk" id="1jlY2aid6$s" role="33vP2m">
+                  <node concept="2pJPED" id="1jlY2aid6$t" role="2pJPEn">
+                    <ref role="2pJxaS" to="tp25:gzTqbfa" resolve="SNodeType" />
+                    <node concept="2pIpSj" id="1jlY2aid6$u" role="2pJxcM">
+                      <ref role="2pIpSl" to="tp25:g$ehGDh" resolve="concept" />
+                      <node concept="36biLy" id="1jlY2aid6$v" role="28nt2d">
+                        <node concept="2OqwBi" id="1kTmBBnriTb" role="36biLW">
+                          <node concept="2OqwBi" id="1MjKMbbX1iF" role="2Oq$k0">
+                            <node concept="1YBJjd" id="1MjKMbbX1iG" role="2Oq$k0">
+                              <ref role="1YBMHb" node="1jlY2aid1yA" resolve="loopMacroNamespace" />
+                            </node>
+                            <node concept="2qgKlT" id="1MjKMbbX1iH" role="2OqNvi">
+                              <ref role="37wK5l" to="tpfh:2vVmcK3imJA" resolve="getTargetMacro" />
+                            </node>
+                          </node>
+                          <node concept="2qgKlT" id="1kTmBBnrjka" role="2OqNvi">
+                            <ref role="37wK5l" to="tpfh:1kTmBBnrdlu" resolve="getPreviousInputNodeType" />
+                          </node>
+                        </node>
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="1Z5TYs" id="1jlY2aid3eo" role="3cqZAp">
+              <node concept="mw_s8" id="1jlY2aid3es" role="1ZfhK$">
+                <node concept="1Z2H0r" id="1jlY2aid3et" role="mwGJk">
+                  <node concept="1YBJjd" id="1jlY2aid3eu" role="1Z2MuG">
+                    <ref role="1YBMHb" node="1jlY2aid1yA" resolve="loopMacroNamespace" />
+                  </node>
+                </node>
+              </node>
+              <node concept="mw_s8" id="1jlY2aid72A" role="1ZfhKB">
+                <node concept="37vLTw" id="1jlY2aid72$" role="mwGJk">
+                  <ref role="3cqZAo" node="1jlY2aid6$r" resolve="inputNodeType" />
+                </node>
+              </node>
+            </node>
+          </node>
+          <node concept="2OqwBi" id="1jlY2aid3aJ" role="3eO9$A">
+            <node concept="2OqwBi" id="1jlY2aid3aK" role="2Oq$k0">
+              <node concept="1YBJjd" id="1jlY2aid3aL" role="2Oq$k0">
+                <ref role="1YBMHb" node="1jlY2aid1yA" resolve="loopMacroNamespace" />
+              </node>
+              <node concept="3TrcHB" id="1jlY2aid3aM" role="2OqNvi">
+                <ref role="3TsBF5" to="tpf8:1jlY2aid0ux" resolve="variable" />
+              </node>
+            </node>
+            <node concept="21noJN" id="1jlY2aid3aN" role="2OqNvi">
+              <node concept="21nZrQ" id="1jlY2aid3ed" role="21noJM">
+                <ref role="21nZrZ" to="tpf8:1jlY2aid0ut" resolve="inputNode" />
+              </node>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+    <node concept="1YaCAy" id="1jlY2aid1yA" role="1YuTPh">
+      <property role="TrG5h" value="loopMacroNamespace" />
+      <ref role="1YaFvo" to="tpf8:2vVmcK3ii$G" resolve="LoopMacroNamespaceAccessor" />
     </node>
   </node>
 </model>

@@ -208,100 +208,100 @@
       <node id="1048903277984357320" at="432,55,433,171" concept="12" />
       <node id="1048903277984448741" at="435,55,436,64" concept="12" />
       <node id="8986013878447086141" at="440,82,441,93" concept="12" />
-      <node id="7914477976583023014" at="443,68,444,79" concept="12" />
-      <node id="7527312772557310955" at="446,63,447,33" concept="12" />
-      <node id="5233440353930210101" at="449,48,450,114" concept="12" />
-      <node id="1733398552130474119" at="454,0,455,0" concept="15" trace="name$MnvL" />
-      <node id="1733398552130474119" at="455,0,456,0" concept="15" trace="applyToConceptInheritors$PfLi" />
-      <node id="1733398552130474119" at="456,0,457,0" concept="15" trace="applyToSubConcepts$wZzZ" />
-      <node id="1733398552130474119" at="457,0,458,0" concept="15" trace="keepSourceRoot$OcNj" />
-      <node id="1733398552130474119" at="458,0,459,0" concept="15" trace="topPriorityGroup$RJ4F" />
-      <node id="1733398552130474119" at="459,0,460,0" concept="15" trace="needCallSite$fSr_" />
-      <node id="1733398552130474119" at="460,0,461,0" concept="15" trace="scriptKind$6esh" />
-      <node id="1733398552130474119" at="461,0,462,0" concept="15" trace="modifiesModel$x_1B" />
-      <node id="1733398552130474119" at="462,0,463,0" concept="15" trace="counterVarName$YOXn" />
-      <node id="1733398552130474119" at="466,0,467,0" concept="15" trace="label$rz_i" />
-      <node id="1733398552130474119" at="467,0,468,0" concept="15" trace="labelDeclaration$ORJN" />
-      <node id="1733398552130474119" at="468,0,469,0" concept="15" trace="mappingLabel$jbOO" />
-      <node id="1733398552130474119" at="469,0,470,0" concept="15" trace="labelDeclaration$8_Th" />
-      <node id="1733398552130474119" at="470,0,471,0" concept="15" trace="labelDeclaration$4kKU" />
-      <node id="1733398552130474119" at="471,0,472,0" concept="15" trace="applicableConcept$Hpnk" />
-      <node id="1733398552130474119" at="472,0,473,0" concept="15" trace="conditionFunction$wXQT" />
-      <node id="1733398552130474119" at="473,0,474,0" concept="15" trace="conditionFunction$vPeH" />
-      <node id="1733398552130474119" at="474,0,475,0" concept="15" trace="templateNode$vPtI" />
-      <node id="1733398552130474119" at="475,0,476,0" concept="15" trace="ruleConsequence$UqzC" />
-      <node id="1733398552130474119" at="476,0,477,0" concept="15" trace="conditionFunction$1Ger" />
-      <node id="1733398552130474119" at="477,0,478,0" concept="15" trace="applicableConcept$n7Dv" />
-      <node id="1733398552130474119" at="478,0,479,0" concept="15" trace="condition$LWP1" />
-      <node id="1733398552130474119" at="479,0,480,0" concept="15" trace="applicableConcept$7iCe" />
-      <node id="1733398552130474119" at="480,0,481,0" concept="15" trace="link$FUJ3" />
-      <node id="1733398552130474119" at="481,0,482,0" concept="15" trace="applicableConcept$id7O" />
-      <node id="1733398552130474119" at="482,0,483,0" concept="15" trace="conditionFunction$i59i" />
-      <node id="1733398552130474119" at="483,0,484,0" concept="15" trace="referentFunction$8CUG" />
-      <node id="1733398552130474119" at="484,0,485,0" concept="15" trace="template$n_Qy" />
-      <node id="1733398552130474119" at="485,0,486,0" concept="15" trace="modifiedSwitch$h3H5" />
-      <node id="1733398552130474119" at="486,0,487,0" concept="15" trace="defaultConsequence$GvWY" />
-      <node id="1733398552130474119" at="487,0,488,0" concept="15" trace="nullInputMessage$$0OE" />
-      <node id="1733398552130474119" at="488,0,489,0" concept="15" trace="ruleConsequence$8_rf" />
-      <node id="1733398552130474119" at="489,0,490,0" concept="15" trace="postMapperFunction$u5cs" />
-      <node id="1733398552130474119" at="490,0,491,0" concept="15" trace="postMapperFunction$MAX$" />
-      <node id="1733398552130474119" at="491,0,492,0" concept="15" trace="mapperFunction$vvDY" />
-      <node id="1733398552130474119" at="492,0,493,0" concept="15" trace="mapperFunction$SOMn" />
-      <node id="1733398552130474119" at="493,0,494,0" concept="15" trace="pattern$ThnR" />
-      <node id="1733398552130474119" at="494,0,495,0" concept="15" trace="parameter$5PGb" />
-      <node id="1733398552130474119" at="495,0,496,0" concept="15" trace="conditionFunction$yWGz" />
-      <node id="1733398552130474119" at="496,0,497,0" concept="15" trace="alternativeConsequence$5VBt" />
-      <node id="1733398552130474119" at="497,0,498,0" concept="15" trace="referentFunction$6c9k" />
-      <node id="1733398552130474119" at="498,0,499,0" concept="15" trace="propertyValueFunction$7Sh_" />
-      <node id="1733398552130474119" at="499,0,500,0" concept="15" trace="mappingScript$AU0b" />
-      <node id="1733398552130474119" at="500,0,501,0" concept="15" trace="template$6_6" />
-      <node id="1733398552130474119" at="501,0,502,0" concept="15" trace="contextNodeQuery$ix$f" />
-      <node id="1733398552130474119" at="502,0,503,0" concept="15" trace="anchorQuery$7YJ8" />
-      <node id="1733398552130474119" at="503,0,504,0" concept="15" trace="anchorQuery$IPGu" />
-      <node id="1733398552130474119" at="504,0,505,0" concept="15" trace="ruleConsequence$JzSl" />
-      <node id="1733398552130474119" at="505,0,506,0" concept="15" trace="templateNode$1Rss" />
-      <node id="1733398552130474119" at="506,0,507,0" concept="15" trace="contentNode$QgS3" />
-      <node id="1733398552130474119" at="507,0,508,0" concept="15" trace="case$HNKv" />
-      <node id="1733398552130474119" at="508,0,509,0" concept="15" trace="conditionFunction$Ed4a" />
-      <node id="1733398552130474119" at="509,0,510,0" concept="15" trace="caseConsequence$kYFz" />
-      <node id="1733398552130474119" at="510,0,511,0" concept="15" trace="defaultConsequence$hX_D" />
-      <node id="1733398552130474119" at="511,0,512,0" concept="15" trace="templateCall$byhU" />
-      <node id="1733398552130474119" at="512,0,513,0" concept="15" trace="sourceNodesQuery$x8mP" />
-      <node id="1733398552130474119" at="513,0,514,0" concept="15" trace="contentNode$CQ7t" />
-      <node id="1733398552130474119" at="514,0,515,0" concept="15" trace="sourceNodesQuery$XjmI" />
-      <node id="1733398552130474119" at="515,0,516,0" concept="15" trace="sourceNodesQuery$RIct" />
-      <node id="1733398552130474119" at="516,0,517,0" concept="15" trace="sourceNodesQuery$Em90" />
-      <node id="1733398552130474119" at="517,0,518,0" concept="15" trace="nodesToWeaveQuery$NXdH" />
-      <node id="1733398552130474119" at="518,0,519,0" concept="15" trace="ruleConsequence$O2B4" />
-      <node id="1733398552130474119" at="519,0,520,0" concept="15" trace="sourceNodeQuery$Z$f1" />
-      <node id="1733398552130474119" at="520,0,521,0" concept="15" trace="sourceNodeQuery$n0M9" />
-      <node id="1733398552130474119" at="521,0,522,0" concept="15" trace="sourceNodeQuery$r9Sk" />
-      <node id="1733398552130474119" at="522,0,523,0" concept="15" trace="sourceNodeQuery$55bP" />
-      <node id="1733398552130474119" at="523,0,524,0" concept="15" trace="sourceNodeQuery$eJXb" />
-      <node id="1733398552130474119" at="524,0,525,0" concept="15" trace="actualArgument$ZcRg" />
-      <node id="1733398552130474119" at="525,0,526,0" concept="15" trace="query$31w3" />
-      <node id="1733398552130474119" at="526,0,527,0" concept="15" trace="parameter$hT7c" />
-      <node id="1733398552130474119" at="527,0,528,0" concept="15" trace="vardecl$C7NG" />
-      <node id="1733398552130474119" at="528,0,529,0" concept="15" trace="codeBlock$Tu8f" />
-      <node id="1733398552130474119" at="529,0,530,0" concept="15" trace="createNodeQuery$ZB7Q" />
-      <node id="1733398552130474119" at="530,0,531,0" concept="15" trace="condition$2Y_U" />
-      <node id="1733398552130474119" at="531,0,532,0" concept="15" trace="variables$Eqmf" />
-      <node id="1733398552130474119" at="532,0,533,0" concept="15" trace="value$EuM$" />
-      <node id="1733398552130474119" at="533,0,534,0" concept="15" trace="generatorMessage$yHHk" />
-      <node id="1733398552130474119" at="537,0,538,0" concept="15" trace="MapSrcNodeMacro$p5" />
-      <node id="1733398552130474119" at="538,0,539,0" concept="15" trace="MapSrcListMacro$bk" />
-      <node id="1733398552130474119" at="539,0,540,0" concept="15" trace="PatternExpression$YJ" />
-      <node id="1733398552130474119" at="540,0,541,0" concept="15" trace="TemplateSwitch$j_" />
-      <node id="1733398552130474119" at="541,0,542,0" concept="15" trace="TemplateDeclaration$5G" />
-      <node id="1733398552130474119" at="542,0,543,0" concept="15" trace="TemplateFragment$eq" />
-      <node id="1733398552130474119" at="543,0,544,0" concept="15" trace="LoopMacro$1T" />
-      <node id="1733398552130474119" at="544,0,545,0" concept="15" trace="CopySrcListMacro$LJ" />
-      <node id="1733398552130474119" at="545,0,546,0" concept="15" trace="WeaveMacro$t$" />
-      <node id="1733398552130474119" at="546,0,547,0" concept="15" trace="CopySrcNodeMacro$9T" />
-      <node id="1733398552130474119" at="547,0,548,0" concept="15" trace="TemplateCallMacro$qa" />
-      <node id="1733398552130474119" at="548,0,549,0" concept="15" trace="TraceMacro$15" />
-      <node id="1733398552130474119" at="549,0,550,0" concept="15" trace="TemplateSwitchMacro$3G" />
-      <node id="1733398552130474119" at="550,0,551,0" concept="15" trace="VarDeclaration$$D" />
+      <node id="7914477976583023014" at="448,68,449,79" concept="12" />
+      <node id="7527312772557310955" at="451,63,452,33" concept="12" />
+      <node id="5233440353930210101" at="454,48,455,114" concept="12" />
+      <node id="1733398552130474119" at="459,0,460,0" concept="15" trace="name$MnvL" />
+      <node id="1733398552130474119" at="460,0,461,0" concept="15" trace="applyToConceptInheritors$PfLi" />
+      <node id="1733398552130474119" at="461,0,462,0" concept="15" trace="applyToSubConcepts$wZzZ" />
+      <node id="1733398552130474119" at="462,0,463,0" concept="15" trace="keepSourceRoot$OcNj" />
+      <node id="1733398552130474119" at="463,0,464,0" concept="15" trace="topPriorityGroup$RJ4F" />
+      <node id="1733398552130474119" at="464,0,465,0" concept="15" trace="needCallSite$fSr_" />
+      <node id="1733398552130474119" at="465,0,466,0" concept="15" trace="scriptKind$6esh" />
+      <node id="1733398552130474119" at="466,0,467,0" concept="15" trace="modifiesModel$x_1B" />
+      <node id="1733398552130474119" at="467,0,468,0" concept="15" trace="counterVarName$YOXn" />
+      <node id="1733398552130474119" at="471,0,472,0" concept="15" trace="label$rz_i" />
+      <node id="1733398552130474119" at="472,0,473,0" concept="15" trace="labelDeclaration$ORJN" />
+      <node id="1733398552130474119" at="473,0,474,0" concept="15" trace="mappingLabel$jbOO" />
+      <node id="1733398552130474119" at="474,0,475,0" concept="15" trace="labelDeclaration$8_Th" />
+      <node id="1733398552130474119" at="475,0,476,0" concept="15" trace="labelDeclaration$4kKU" />
+      <node id="1733398552130474119" at="476,0,477,0" concept="15" trace="applicableConcept$Hpnk" />
+      <node id="1733398552130474119" at="477,0,478,0" concept="15" trace="conditionFunction$wXQT" />
+      <node id="1733398552130474119" at="478,0,479,0" concept="15" trace="conditionFunction$vPeH" />
+      <node id="1733398552130474119" at="479,0,480,0" concept="15" trace="templateNode$vPtI" />
+      <node id="1733398552130474119" at="480,0,481,0" concept="15" trace="ruleConsequence$UqzC" />
+      <node id="1733398552130474119" at="481,0,482,0" concept="15" trace="conditionFunction$1Ger" />
+      <node id="1733398552130474119" at="482,0,483,0" concept="15" trace="applicableConcept$n7Dv" />
+      <node id="1733398552130474119" at="483,0,484,0" concept="15" trace="condition$LWP1" />
+      <node id="1733398552130474119" at="484,0,485,0" concept="15" trace="applicableConcept$7iCe" />
+      <node id="1733398552130474119" at="485,0,486,0" concept="15" trace="link$FUJ3" />
+      <node id="1733398552130474119" at="486,0,487,0" concept="15" trace="applicableConcept$id7O" />
+      <node id="1733398552130474119" at="487,0,488,0" concept="15" trace="conditionFunction$i59i" />
+      <node id="1733398552130474119" at="488,0,489,0" concept="15" trace="referentFunction$8CUG" />
+      <node id="1733398552130474119" at="489,0,490,0" concept="15" trace="template$n_Qy" />
+      <node id="1733398552130474119" at="490,0,491,0" concept="15" trace="modifiedSwitch$h3H5" />
+      <node id="1733398552130474119" at="491,0,492,0" concept="15" trace="defaultConsequence$GvWY" />
+      <node id="1733398552130474119" at="492,0,493,0" concept="15" trace="nullInputMessage$$0OE" />
+      <node id="1733398552130474119" at="493,0,494,0" concept="15" trace="ruleConsequence$8_rf" />
+      <node id="1733398552130474119" at="494,0,495,0" concept="15" trace="postMapperFunction$u5cs" />
+      <node id="1733398552130474119" at="495,0,496,0" concept="15" trace="postMapperFunction$MAX$" />
+      <node id="1733398552130474119" at="496,0,497,0" concept="15" trace="mapperFunction$vvDY" />
+      <node id="1733398552130474119" at="497,0,498,0" concept="15" trace="mapperFunction$SOMn" />
+      <node id="1733398552130474119" at="498,0,499,0" concept="15" trace="pattern$ThnR" />
+      <node id="1733398552130474119" at="499,0,500,0" concept="15" trace="parameter$5PGb" />
+      <node id="1733398552130474119" at="500,0,501,0" concept="15" trace="conditionFunction$yWGz" />
+      <node id="1733398552130474119" at="501,0,502,0" concept="15" trace="alternativeConsequence$5VBt" />
+      <node id="1733398552130474119" at="502,0,503,0" concept="15" trace="referentFunction$6c9k" />
+      <node id="1733398552130474119" at="503,0,504,0" concept="15" trace="propertyValueFunction$7Sh_" />
+      <node id="1733398552130474119" at="504,0,505,0" concept="15" trace="mappingScript$AU0b" />
+      <node id="1733398552130474119" at="505,0,506,0" concept="15" trace="template$6_6" />
+      <node id="1733398552130474119" at="506,0,507,0" concept="15" trace="contextNodeQuery$ix$f" />
+      <node id="1733398552130474119" at="507,0,508,0" concept="15" trace="anchorQuery$7YJ8" />
+      <node id="1733398552130474119" at="508,0,509,0" concept="15" trace="anchorQuery$IPGu" />
+      <node id="1733398552130474119" at="509,0,510,0" concept="15" trace="ruleConsequence$JzSl" />
+      <node id="1733398552130474119" at="510,0,511,0" concept="15" trace="templateNode$1Rss" />
+      <node id="1733398552130474119" at="511,0,512,0" concept="15" trace="contentNode$QgS3" />
+      <node id="1733398552130474119" at="512,0,513,0" concept="15" trace="case$HNKv" />
+      <node id="1733398552130474119" at="513,0,514,0" concept="15" trace="conditionFunction$Ed4a" />
+      <node id="1733398552130474119" at="514,0,515,0" concept="15" trace="caseConsequence$kYFz" />
+      <node id="1733398552130474119" at="515,0,516,0" concept="15" trace="defaultConsequence$hX_D" />
+      <node id="1733398552130474119" at="516,0,517,0" concept="15" trace="templateCall$byhU" />
+      <node id="1733398552130474119" at="517,0,518,0" concept="15" trace="sourceNodesQuery$x8mP" />
+      <node id="1733398552130474119" at="518,0,519,0" concept="15" trace="contentNode$CQ7t" />
+      <node id="1733398552130474119" at="519,0,520,0" concept="15" trace="sourceNodesQuery$XjmI" />
+      <node id="1733398552130474119" at="520,0,521,0" concept="15" trace="sourceNodesQuery$RIct" />
+      <node id="1733398552130474119" at="521,0,522,0" concept="15" trace="sourceNodesQuery$Em90" />
+      <node id="1733398552130474119" at="522,0,523,0" concept="15" trace="nodesToWeaveQuery$NXdH" />
+      <node id="1733398552130474119" at="523,0,524,0" concept="15" trace="ruleConsequence$O2B4" />
+      <node id="1733398552130474119" at="524,0,525,0" concept="15" trace="sourceNodeQuery$Z$f1" />
+      <node id="1733398552130474119" at="525,0,526,0" concept="15" trace="sourceNodeQuery$n0M9" />
+      <node id="1733398552130474119" at="526,0,527,0" concept="15" trace="sourceNodeQuery$r9Sk" />
+      <node id="1733398552130474119" at="527,0,528,0" concept="15" trace="sourceNodeQuery$55bP" />
+      <node id="1733398552130474119" at="528,0,529,0" concept="15" trace="sourceNodeQuery$eJXb" />
+      <node id="1733398552130474119" at="529,0,530,0" concept="15" trace="actualArgument$ZcRg" />
+      <node id="1733398552130474119" at="530,0,531,0" concept="15" trace="query$31w3" />
+      <node id="1733398552130474119" at="531,0,532,0" concept="15" trace="parameter$hT7c" />
+      <node id="1733398552130474119" at="532,0,533,0" concept="15" trace="vardecl$C7NG" />
+      <node id="1733398552130474119" at="533,0,534,0" concept="15" trace="codeBlock$Tu8f" />
+      <node id="1733398552130474119" at="534,0,535,0" concept="15" trace="createNodeQuery$ZB7Q" />
+      <node id="1733398552130474119" at="535,0,536,0" concept="15" trace="condition$2Y_U" />
+      <node id="1733398552130474119" at="536,0,537,0" concept="15" trace="variables$Eqmf" />
+      <node id="1733398552130474119" at="537,0,538,0" concept="15" trace="value$EuM$" />
+      <node id="1733398552130474119" at="538,0,539,0" concept="15" trace="generatorMessage$yHHk" />
+      <node id="1733398552130474119" at="542,0,543,0" concept="15" trace="MapSrcNodeMacro$p5" />
+      <node id="1733398552130474119" at="543,0,544,0" concept="15" trace="MapSrcListMacro$bk" />
+      <node id="1733398552130474119" at="544,0,545,0" concept="15" trace="PatternExpression$YJ" />
+      <node id="1733398552130474119" at="545,0,546,0" concept="15" trace="TemplateSwitch$j_" />
+      <node id="1733398552130474119" at="546,0,547,0" concept="15" trace="TemplateDeclaration$5G" />
+      <node id="1733398552130474119" at="547,0,548,0" concept="15" trace="TemplateFragment$eq" />
+      <node id="1733398552130474119" at="548,0,549,0" concept="15" trace="LoopMacro$1T" />
+      <node id="1733398552130474119" at="549,0,550,0" concept="15" trace="CopySrcListMacro$LJ" />
+      <node id="1733398552130474119" at="550,0,551,0" concept="15" trace="WeaveMacro$t$" />
+      <node id="1733398552130474119" at="551,0,552,0" concept="15" trace="CopySrcNodeMacro$9T" />
+      <node id="1733398552130474119" at="552,0,553,0" concept="15" trace="TemplateCallMacro$qa" />
+      <node id="1733398552130474119" at="553,0,554,0" concept="15" trace="TraceMacro$15" />
+      <node id="1733398552130474119" at="554,0,555,0" concept="15" trace="TemplateSwitchMacro$3G" />
+      <node id="1733398552130474119" at="555,0,556,0" concept="15" trace="VarDeclaration$$D" />
       <node id="7006097710431222814" at="144,0,147,0" concept="16" trace="isNodeMacro#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
       <node id="2288466875851129884" at="147,0,150,0" concept="16" trace="isNodeMacro#(Lorg/jetbrains/mps/openapi/language/SAbstractConcept;)Z" />
       <node id="3381130103055826399" at="150,0,153,0" concept="16" trace="isTemplateLanguageElement#(Lorg/jetbrains/mps/openapi/model/SNode;)Z" />
@@ -376,10 +376,10 @@
       <node id="1048903277984357316" at="432,0,435,0" concept="16" trace="getVarDecl_Name#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
       <node id="1048903277984448737" at="435,0,438,0" concept="16" trace="getVarDecl_Query#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
       <node id="8986013878447081927" at="440,0,443,0" concept="16" trace="getDismissTopRule_message#(Lorg/jetbrains/mps/openapi/model/SNode;)Lorg/jetbrains/mps/openapi/model/SNode;" />
-      <node id="7914477976583014926" at="443,0,446,0" concept="16" trace="getLoopMacroCounterVarName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
-      <node id="7527312772557322314" at="446,0,449,0" concept="16" trace="getModelChangeOperations#()Ljava/lang/Iterable;" />
-      <node id="5233440353930206212" at="449,0,452,0" concept="16" trace="getPatternLanguage#()Lorg/jetbrains/mps/openapi/language/SLanguage;" />
+      <node id="7527312772557322314" at="451,0,454,0" concept="16" trace="getModelChangeOperations#()Ljava/lang/Iterable;" />
+      <node id="5233440353930206212" at="454,0,457,0" concept="16" trace="getPatternLanguage#()Lorg/jetbrains/mps/openapi/language/SLanguage;" />
       <node id="3787796982867056160" at="394,0,398,0" concept="16" trace="getTemplateCall_Arguments#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/util/List;" />
+      <node id="7914477976583014926" at="447,0,451,0" concept="16" trace="getLoopMacroCounterVarName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
       <node id="6414589636559797566" at="255,64,260,5" concept="9" />
       <node id="5535664898596391456" at="263,60,268,5" concept="9" />
       <node id="1733398552130483587" at="160,0,167,0" concept="16" trace="getMappingLabelName#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/String;" />
@@ -478,9 +478,9 @@
       <scope id="1048903277984357319" at="432,55,433,171" />
       <scope id="1048903277984448740" at="435,55,436,64" />
       <scope id="8986013878447081931" at="440,82,441,93" />
-      <scope id="7914477976583014930" at="443,68,444,79" />
-      <scope id="7527312772557296391" at="446,63,447,33" />
-      <scope id="5233440353930206215" at="449,48,450,114" />
+      <scope id="7914477976583014930" at="448,68,449,79" />
+      <scope id="7527312772557296391" at="451,63,452,33" />
+      <scope id="5233440353930206215" at="454,48,455,114" />
       <scope id="3787796982867056163" at="394,75,396,0" />
       <scope id="8632039839642676892" at="125,10,128,54" />
       <scope id="7006097710431222814" at="144,0,147,0">
@@ -690,14 +690,14 @@
       <scope id="8986013878447081927" at="440,0,443,0">
         <var name="dismissTopRuleConsequence" id="8986013878447085917" />
       </scope>
-      <scope id="7914477976583014926" at="443,0,446,0">
-        <var name="loopMacro" id="7914477976583022892" />
-      </scope>
-      <scope id="7527312772557322314" at="446,0,449,0" />
-      <scope id="5233440353930206212" at="449,0,452,0" />
+      <scope id="7527312772557322314" at="451,0,454,0" />
+      <scope id="5233440353930206212" at="454,0,457,0" />
       <scope id="7006097710431499011" at="115,10,119,61" />
       <scope id="3787796982867056160" at="394,0,398,0">
         <var name="templateCall" id="3787796982867100963" />
+      </scope>
+      <scope id="7914477976583014926" at="447,0,451,0">
+        <var name="loopMacro" id="7914477976583022892" />
       </scope>
       <scope id="1733398552130483590" at="160,76,165,50">
         <var name="result" id="1733398552130483607" />
@@ -736,10 +736,10 @@
       <scope id="5590278813170626302" at="377,0,394,0">
         <var name="node" id="5590278813170626355" />
       </scope>
-      <unit id="1733398552130474119" at="453,0,464,0" name="jetbrains.mps.generator.impl.RuleUtil$PROPS" />
-      <unit id="1733398552130474119" at="536,0,552,0" name="jetbrains.mps.generator.impl.RuleUtil$CONCEPTS" />
-      <unit id="1733398552130474119" at="465,0,535,0" name="jetbrains.mps.generator.impl.RuleUtil$LINKS" />
-      <unit id="1733398552130474119" at="27,0,553,0" name="jetbrains.mps.generator.impl.RuleUtil" />
+      <unit id="1733398552130474119" at="458,0,469,0" name="jetbrains.mps.generator.impl.RuleUtil$PROPS" />
+      <unit id="1733398552130474119" at="541,0,557,0" name="jetbrains.mps.generator.impl.RuleUtil$CONCEPTS" />
+      <unit id="1733398552130474119" at="470,0,540,0" name="jetbrains.mps.generator.impl.RuleUtil$LINKS" />
+      <unit id="1733398552130474119" at="27,0,558,0" name="jetbrains.mps.generator.impl.RuleUtil" />
     </file>
   </root>
   <root nodeRef="r:ab837574-aa54-4b18-9762-b783ef089263(jetbrains.mps.generator.impl)/2214485068936293220">
